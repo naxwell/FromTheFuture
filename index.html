@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Design Fiction Test</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="components/set-image.js"></script>
+  </head>
+  <body>
+  
+    <a-scene>
+      <a-assets>
+        <!-- 360 photos -->
+        <img id="outside" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2FDSC_9605_stitch.jpg?1512004300046" >
+        <img id="office" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fiz.jpg?1512004112207">
+        <img id="bedroom" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2FfinalJairussoft.jpg?1512004064929">
+        
+        <!-- Audio -->   
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        
+        <!-- Button thumbs -->
+        <img id="dslr-thumb" crossorigin="anonymous" src="https://cdn.glitch.com/4bf62e3e-441f-42b8-8470-bdf1a336c126%2Fthumb-dslr.png?1511414831117">
+        <img id="officemi-thumb" crossorigin="anonymous" src="https://cdn.glitch.com/4bf62e3e-441f-42b8-8470-bdf1a336c126%2Fthumb-officemi.png?1511455315099">
+        <img id="officedslr-thumb" crossorigin="anonymous" src="https://cdn.glitch.com/4bf62e3e-441f-42b8-8470-bdf1a336c126%2Fthumb-dslroffice.png?1511455315073">
+        
+        <!-- tramsparement image assets  -->
+        
+        <img id="transpImage" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Finsta2.png?1512017638355">
+        <img id="heart" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fheart.png?1512016749137">
+         <img id="wifi" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fwifi.png?1512018133231">
+        
+        <!-- not used? --- DELETE!? -->v
+        <img id="officemi" crossorigin="anonymous" src="https://cdn.glitch.com/4bf62e3e-441f-42b8-8470-bdf1a336c126%2Fmi2.jpg?1511494371984">
+        <img  id="misphere-thumb" crossorigin="anonymous" src="https://cdn.glitch.com/4bf62e3e-441f-42b8-8470-bdf1a336c126%2Fthumb-mi.png?1511414831137">
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity 
+            class="link"
+            geometry="primitive: plane; height: 1; width: 1"
+            material="alphaTest: 1; transparent: true; opacity: 0;"
+            text="value: ${text}; width: 5; align: center; color: #000;"
+            event-set__1="_event: mousedown; scale: 1 1 1"
+            event-set__2="_event: mouseup; scale: 1.2 1.2 1"
+            event-set__3="_event: mouseenter; scale: 1.2 1.2 1"
+            event-set__4="_event: mouseleave; scale: 1 1 1"
+            set-image="on: click; target: #image-360; src: ${src}; scene: ${scene}"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+        
+        <a-mixin
+          id="marker"
+          geometry="primitive: plane; width: 4; height: 1"
+          material="color: red"></a-mixin>
+      </a-assets>
+      
+      <!-- 1: Outside -->
+      <a-entity id="scene1" class="scene" visible="true">
+       
+        <a-entity rotation="0 -153 0" position="3 0 4" template="src: #link" data-src="#office" data-text="Office" data-scene="2" ></a-entity>
+        <a-entity rotation="0 -153 0" position="3 1.5 4" template="src: #link" data-src="#bedroom" data-text="Bedroom" data-scene="3"></a-entity>
+        <a-image rotation="0 -20 4" position= ".4 -.5 -1.5" src="#transpImage"></a-image>
+        <a-image rotation="1 -100 1" position= "4.8 .5 1.5" src="#heart" template="src: #link" data-src="#office" data-text="" data-scene="2"></a-image>
+        
+<!--         Text elements -->
+        <a-entity id="opacity" rotation="0 50 -5" position="-3.4 -.5 -4.3" text="color: white; align: center; value: Turn (push notifications) On; width: 3"></a-entity>
+        
+        
+        <a-image rotation="0 0 -10" position= "-4 -5 -10" src="#wifi" ></a-image> 
+    
+        <a-entity mixin="marker" position="-4 -5 -10"
+                event-set__enter="_event: mouseenter; _target: #wifitext; visible: true"
+                event-set__leave="_event: mouseleave; _target: #wifitext; visible: false">
+             </a-entity>
+        <a-entity id="wifitext" rotation="0 30 0"   material="color: red" position="-1.8 -1.6 -2.2" visible="true"
+                text="align: right;  width: 2; color: white; value: The world’s first cellular enabled, social networked, vibrating underwear. never miss a single like." geometry="primitive: plane; width: auto; height: auto" >
+      </a-entity>
+        
+         
+      </a-entity>
+
+      
+<!--         <a-entity rotation="1 59 1" position="4.8 .5 1.5" template="src: #link" data-src="#office" data-thumb="#heart" data-scene="2"></a-entity> -->
+      
+      <!-- 2: Office -->
+      <a-entity id="scene2" class="scene" visible="false">
+        <a-entity rotation="0 -153 0" position="4 0 4" template="src: #link" data-src="#bedroom" data-text="Bedroom" data-scene="3"></a-entity>
+        <a-entity rotation="0 -153 0" position="4 1.5 4" template="src: #link" data-src="#outside"  data-text="Outside" data-scene="1"></a-entity>
+      </a-entity>
+      
+      <!-- 3: Bedroom -->
+      <a-entity id="scene3" class="scene" visible="false">
+        <a-entity position="-7 4 -21"
+                text="anchor: left; width: 15; color: white; value: If you die in VR, you die in real life">
+        </a-entity>
+        <a-entity rotation="0 -153 0" position="5 0 4" template="src: #link" data-src="#office" data-text="Office" data-scene="2"></a-entity>
+        <a-entity rotation="0 -153 0" position="5 1.5 4" template="src: #link" data-src="#outside" data-text="Outside" data-scene="1"></a-entity>
+      </a-entity>
+      
+      <!-- Camera + cursor. -->
+      <a-sky rotation="0 -70 0" id="image-360" radius="30" src="#outside"></a-sky>
+      <a-entity camera look-controls rotation="-19 0 0">
+        <a-cursor id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__1="_event: mouseenter; color: pink"
+          event-set__2="_event: mouseleave; color: black"
+          fuse="true"
+          raycaster="objects: .link"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
