@@ -26,11 +26,19 @@ AFRAME.registerComponent('set-image', {
       setTimeout(function () {
         // Set image.
         data.target.setAttribute('material', 'src', data.src);
-        // Set scene UI
+        // Set scene UI to inactive
         var scenes = document.querySelectorAll('.scene');
         scenes.forEach(scene => scene.setAttribute('visible', 'false'));
+        // Disable links
+        var links = document.querySelectorAll('.link');
+        links.forEach(link => link.setAttribute('class', 'unlink'));
+        // Enable UI for current scene
         var sceneName = '#scene' + data.scene;
         document.querySelector(sceneName).setAttribute('visible', 'true');
+        var currentScene = document.querySelector(sceneName);
+        currentScene.setAttribute('visible', 'true');
+        var sceneLinks = currentScene.querySelectorAll('.unlink')
+        sceneLinks.forEach(link => link.setAttribute('class', 'link'));
       }, data.dur);
     });
   },

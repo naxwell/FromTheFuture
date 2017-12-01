@@ -17,7 +17,7 @@
       <a-assets>
         <!-- 360 photos -->
         <img id="outside" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2FDSC_9605_stitch.jpg?1512004300046" >
-        <img id="office" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fiz.jpg?1512004112207">
+        <img id="office" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fiz.jpg?1512093930879">
         <img id="bedroom" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2FfinalJairussoft.jpg?1512004064929">
         
         <!-- Audio -->   
@@ -34,6 +34,8 @@
         <img id="heart" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fheart.png?1512016749137">
          <img id="wifi" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fwifi.png?1512018133231">
         <img id="fight" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Ffight.png?1512083403025">
+        <img id="parental" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fparental.png?1512095639764">
+        <img id="ad" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fad.png?1512097428638">
         
         <!-- not used? --- DELETE!? -->v
         <img id="officemi" crossorigin="anonymous" src="https://cdn.glitch.com/4bf62e3e-441f-42b8-8470-bdf1a336c126%2Fmi2.jpg?1511494371984">
@@ -70,17 +72,17 @@
         <a-image class="link" rotation="0 0 -10" position= "-4 -5 -10" src="#wifi" 
                  event-set__enter="_event: mouseenter; _target: #wifitext; visible: true"
                   event-set__leave="_event: mouseleave; _target: #wifitext; visible: false"></a-image>
-
+  
 <!--         Text elements -->
-        <a-entity id="push" rotation="0 50 -5" position="-3.4 -.5 -4.3" visible="false" material="color:red" geometry="primitive: plane; width: auto; height: auto" 
+        <a-entity id="push" rotation="0 -20 4" position=".8 -2.2 -3" visible="false" material="color:red" geometry="primitive: plane; width: auto; height: auto" 
                   text="color: white; align: center; value: Turn (push notifications) On; width: 4"></a-entity>
-        <a-entity id="wifitext" rotation="0 30 0"   material="color: red" position="-1.8 -1.6 -2.2" visible="false"
-                text="align: right;  width: 2; color: white; value: The world’s first cellular enabled, social networked, vibrating underwear. never miss a single like." geometry="primitive: plane; width: auto; height: auto" >
+        <a-entity id="wifitext" rotation="0 30 0"   material="color: red" position="-4 -6 -10" visible="false"
+                text="align: center;  width: 8; color: white; value: The world’s first cellular enabled, social networked, vibrating underwear. never miss a single like." geometry="primitive: plane; width: auto; height: auto" >
       </a-entity>
         
          
 <!--         Interactions  -->
-        <a-plane class="link" position="-4.5 -1.6 -8" height="1" width=".5" material="color: red; transparent: true; opacity: 0"
+        <a-plane class="link" rotation="0 -20 4" position= ".4 -.5 -1.5" height=".3" width="1.5" material="color: red; transparent: true; opacity: 0"
                  event-set__enter="_event: mouseenter; _target: #push; visible: true"
                 event-set__leave="_event: mouseleave; _target: #push; visible: false"></a-plane>
         <a-plane height="2.2" width="2.7" material="color: red; transparent: true; opacity: .5" rotation="5 -170 0" position=".5 .2 6" template="src: #link" data-src="#bedroom" data-text="" data-scene="3"></a-plane>
@@ -94,17 +96,35 @@
       
       <!-- 2: Office -->
       <a-entity id="scene2" class="scene" visible="false">
-        <a-entity rotation="0 -153 0" position="4 0 4" template="src: #link" data-src="#bedroom" data-text="Bedroom" data-scene="3"></a-entity>
-        <a-entity rotation="0 -153 0" position="4 1.5 4" template="src: #link" data-src="#outside"  data-text="Outside" data-scene="1"></a-entity>
+        <a-entity rotation="0 -153 0" position="-1.2 0 4" template="src: #link" data-src="#bedroom" data-text="Bedroom" data-scene="3"></a-entity>
+        <a-plane material="color:black; transparent: true; opacity: 0.5;" height="4" width="4" rotation="0 25 0" position="-6.5 0 -15" template="src: #link" data-src="#outside" data-text=""  data-scene="1"></a-plane>
        <a-image rotation="-43.545 19 5" position= "-1.3 -4 -4.1" src="#fight" width="7" height="1.5"></a-image>
         
        <a-plane class="link" height="2.5" width="4" material="color: red; transparent: true; opacity: 0" rotation="0 110 0"  position="-8 -.5 -1.7"
                 event-set__enter="_event: mouseenter; _target: #tvText; visible: true"
                 event-set__leave="_event: mouseleave; _target: #tvText; visible: false"></a-plane>   
 <!--           ^^^ on hover to turn on below    -->
-        <a-entity id="tvText" rotation="0 110 0"  position="-10 -2.9 -1.7" material="color: red"  visible="false"
+        <a-entity id="tvText" rotation="0 110 0"  position="-10 -2.9 -1.7" material="color: black"  visible="false"
                 text="align: right;  width: 7; color: white; value: 
 Long hours, monotonous work, and repetitive exposure to the blasphemous and abhorrent. But when you work to end sin, He’s always by your side." geometry="primitive: plane; width: auto; height: auto" >
+      </a-entity>
+        
+        <a-image class="link" rotation="0 -60 0"  position="10 1 -7.4" src="#parental" width="2" height="1"
+                event-set__enter="_event: mouseenter; _target: #boardBig; visible: true"
+                event-set__leave="_event: mouseleave; _target: #boardBig; visible: false"></a-image>
+<!--         <a-plane class="link" height="2.5" width="4" material="color: red; transparent: true; opacity: 0" rotation="0 -60 0"  position="10 .6 -7.4"
+                event-set__enter="_event: mouseenter; _target: #boardBig; visible: true"
+                event-set__leave="_event: mouseleave; _target: #boardBig; visible: false"></a-plane>    -->
+      <a-entity id="boardBig" rotation="0 -60 0"  position="10 -1 -7.4" material="color: black"  visible="false"
+                text="align: center;  width: 15; color: white; value:DIGITAL PROMISCUITY IS ON THE RISE!" geometry="primitive: plane; width: auto; height: auto" >
+      </a-entity>
+        
+        <a-plane class="link" rotation="0 25 0"  position="-6.5 -8 -15" height="3" width="2" material="color: red; transparent: true; opacity: 0"
+                 event-set__enter="_event: mouseenter; _target: #protect; visible: true"
+                event-set__leave="_event: mouseleave; _target: #protect; visible: false"></a-plane>
+        <a-entity id="protect" rotation="0 25 0"  position="-6.5 -8 -15" material="color: black"  visible="false"
+                text="align: left;  width: 10; color: white; value: 
+Protect your daughters. Become a reporter. Join the Canadian Forces." geometry="primitive: plane; width: auto; height: auto">
       </a-entity>
         
         
@@ -117,11 +137,15 @@ Long hours, monotonous work, and repetitive exposure to the blasphemous and abho
       
       <!-- 3: Bedroom -->
       <a-entity id="scene3" class="scene" visible="false">
-        <a-entity position="-7 4 -21"
-                text="anchor: left; width: 15; color: white; value: If you die in VR, you die in real life">
+        <a-image rotation="0 6 0" position="-1.9 -7 -21" src="#ad" height="3" width="15"></a-image>
+        <a-entity id="call" rotation="-25 0 0" position="-3 -15 -19" 
+                text="align: center; width: 20; color: white; value: call 1-800-666-1999 to book your advertorial interupts now!"  
+                  geometry="primitive: plane; width: auto; height: auto" material="color: #FF1493">
         </a-entity>
-        <a-entity rotation="0 -153 0" position="5 0 4" template="src: #link" data-src="#office" data-text="Office" data-scene="2"></a-entity>
-        <a-entity rotation="0 -153 0" position="5 1.5 4" template="src: #link" data-src="#outside" data-text="Outside" data-scene="1"></a-entity>
+        
+        
+        <a-plane material="color:pink; transparent: true; opacity: 0.5;" height="2" width="2" rotation="0 -100 0" position="27 -10 -3" template="src: #link" data-src="#office" data-text="" data-scene="2"></a-plane>
+        <a-plane material="color:blue; transparent: true; opacity: 0.5;" height="8" width="4" rotation="0 100 10" position="-18 .5 11" template="src: #link" data-src="#outside" data-text=""  data-scene="1"></a-plane>
       </a-entity>
       
       <!-- Camera + cursor. -->
