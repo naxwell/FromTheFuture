@@ -36,6 +36,8 @@
         <img id="fight" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Ffight.png?1512083403025">
         <img id="parental" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fparental.png?1512095639764">
         <img id="ad" crossorigin="anonymous" src="https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fad.png?1512097428638">
+        <img id="here" crossorigin="anonymous" src=" https://cdn.glitch.com/5ee616b8-2454-4ad8-9265-e1194600055e%2Fhere.png?1512099595932">
+       
         
         <!-- not used? --- DELETE!? -->v
         <img id="officemi" crossorigin="anonymous" src="https://cdn.glitch.com/4bf62e3e-441f-42b8-8470-bdf1a336c126%2Fmi2.jpg?1511494371984">
@@ -137,11 +139,41 @@ Protect your daughters. Become a reporter. Join the Canadian Forces." geometry="
       
       <!-- 3: Bedroom -->
       <a-entity id="scene3" class="scene" visible="false">
-        <a-image rotation="0 6 0" position="-1.9 -7 -21" src="#ad" height="3" width="15"></a-image>
-        <a-entity id="call" rotation="-25 0 0" position="-3 -15 -19" 
+        <a-image class="link" rotation="0 6 0" position="-1.9 -7 -21" src="#here" height="3" width="15"
+                 event-set__enter="_event: mouseenter; _target: #call; visible: true"></a-image>
+       <a-entity id="call" rotation="-25 0 0" position="-3 -12 -16" visible="false"
                 text="align: center; width: 20; color: white; value: call 1-800-666-1999 to book your advertorial interupts now!"  
                   geometry="primitive: plane; width: auto; height: auto" material="color: #FF1493">
         </a-entity>
+        
+        <a-image class="link" rotation="0 -50 0" position="13 1 -15" src="#here" height="3" width="15"
+                 event-set__enter="_event: mouseenter; _target: #captive; visible: true"></a-image>
+        <a-entity id="captive" rotation="0 -46 0" position="7 -2 -8" visible="false" 
+                text="align: center; width: 20; color: white; value: Access a captive audience!"  
+                geometry="primitive: plane; width: auto; height: auto" material="color: #FF1493">
+        </a-entity>
+        
+         <a-image class="link" rotation="15 -19 -3" position="-2 12 -22" src="#here" height="3" width="15"
+                 event-set__enter="_event: mouseenter; _target: #market; visible: true">
+          <a-entity id="market" rotation="0 0 0" position="0 -2 3" visible="false" 
+                text="align: center; width: 30; color: white; value: Direct to your target markets!"  
+                geometry="primitive: plane; width: auto; height: auto" material="color: #FF1493">
+        </a-entity></a-image>
+        
+          <a-image class="link" rotation="0 88 0" position="-23 0 2" src="#here" height="3" width="15"
+                 event-set__enter="_event: mouseenter; _target: #captive2; visible: true"></a-image>
+        <a-entity id="captive2" rotation="0 88 0" position="-14 2 0" visible="false" 
+                text="align: center; width: 20; color: white; value: Access a captive audience!"  
+                geometry="primitive: plane; width: auto; height: auto" material="color: #FF1493">
+        </a-entity>
+        
+        <a-image class="link" rotation="0 180 0" position="0 0 10" src="#ad" height="3" width="15"
+                 event-set__enter="_event: mouseenter; _target: #act; visible: true">
+          <a-entity id="act" rotation="0 0 0" position="0 -2 -3" visible="false" 
+                text="align: center; width: 30; color: white; value: act fast!"  
+                geometry="primitive: plane; width: auto; height: auto" material="color: #FF1493">
+        </a-entity></a-image>
+      
         
         
         <a-plane material="color:pink; transparent: true; opacity: 0.5;" height="2" width="2" rotation="0 -100 0" position="27 -10 -3" template="src: #link" data-src="#office" data-text="" data-scene="2"></a-plane>
