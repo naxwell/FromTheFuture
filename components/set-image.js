@@ -32,6 +32,8 @@ AFRAME.registerComponent('set-image', {
         // Disable links
         var links = document.querySelectorAll('.link');
         links.forEach(link => link.setAttribute('class', 'unlink'));
+        var texts = document.querySelectorAll('.text');
+        texts.forEach(text => text.setAttribute('visible', 'false'));
         // Enable UI for current scene
         var sceneName = '#scene' + data.scene;
         document.querySelector(sceneName).setAttribute('visible', 'true');
